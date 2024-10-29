@@ -5,18 +5,18 @@ public class S_Grid : MonoBehaviour
 {
     #region variable info 
     [SerializeField] Vector3Int m_GridDimensions;
-    [SerializeField] Voxel m_airVoxel;
-    [SerializeField] Voxel m_solidVoxel;
+    [SerializeField] VoxelData m_airVoxel;
+    [SerializeField] VoxelData m_solidVoxel;
     [SerializeField] float m_cellSize;
     [SerializeField] Transform m_parentTransform;
     [SerializeField] GameObject m_obj;
-    List<Voxel> m_VoxelList = new List<Voxel>();
+    [SerializeField] List<VoxelData> m_VoxelList = new List<VoxelData>();
     
     #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
 
-    void Start()
+    void Awake()
     {
         InitVoxelList();
     }
@@ -42,6 +42,7 @@ public class S_Grid : MonoBehaviour
 
     void InstantiateVoxels()
     {
+        // loops through 3 dimensions and adds a voxel 
         for (int i = 0; i < m_GridDimensions.x; i++)
         {
             for (int j = 0; j < m_GridDimensions.y; j++)
@@ -49,12 +50,24 @@ public class S_Grid : MonoBehaviour
                 for (int k = 0; k < m_GridDimensions.z; k++)
                 {
                     Vector3 _indexes = new Vector3(i,j,k) * m_cellSize;
-                    GameObject obj = 
+                    
+                   // creates a gameobject to store voxel in temporarily
+
+                   GameObject _obj = 
                     Instantiate(m_obj,
                         (m_parentTransform.position + _indexes), 
                         Quaternion.identity, m_parentTransform);
 
-                    obj.transform.localScale = new Vector3(m_cellSize, m_cellSize, m_cellSize);
+                    _obj.transform.localScale = new Vector3(m_cellSize, m_cellSize, m_cellSize);
+                   
+                    if(_obj.GetComponent<VoxelFunctionality>() != null)
+                    {
+                        VoxelFunctionality _script = _obj.GetComponent<VoxelFunctionality>();
+
+                        _script.UpdateVoxelType(m_airVoxel);
+
+                    }
+
                 }
             }
         }
