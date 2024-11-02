@@ -121,6 +121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f28a50f750f329241998cba1b916715d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_currentVoxelData: {fileID: 0}
-  m_currentMaterial: {fileID: 0}
-  m_meshRenderer: {fileID: 0}
+  m_currentVoxelData: {fileID: 11400000, guid: 8f0b2ac37bdd81f4ea10bdb8c4092f4d, type: 2}
+  m_currentMaterial: {fileID: 2100000, guid: bd8a7bd83fcc4b14ea68cb8874085063, type: 2}
+  m_meshRenderer: {fileID: 1778190984177443825}

@@ -6,6 +6,10 @@ public class VoxelFunctionality : MonoBehaviour
     [SerializeField] VoxelData m_currentVoxelData = null;
     [SerializeField] Material m_currentMaterial;
     [SerializeField] MeshRenderer m_meshRenderer;
+    int m_index;
+
+    public int index { get { return m_index; } }
+
 
    public void UpdateVoxelType(VoxelData _newVoxelData)
    {
@@ -13,6 +17,7 @@ public class VoxelFunctionality : MonoBehaviour
         {
             m_currentVoxelData = _newVoxelData;
             UpdateMaterial(_newVoxelData.GetMaterial);
+            
         }
 
    }

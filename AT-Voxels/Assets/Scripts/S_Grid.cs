@@ -5,12 +5,11 @@ public class S_Grid : MonoBehaviour
 {
     #region variable info 
     [SerializeField] Vector3Int m_GridDimensions;
-    [SerializeField] VoxelData m_airVoxel;
-    [SerializeField] VoxelData m_solidVoxel;
+    [SerializeField] VoxelData m_InitialVoxel;
     [SerializeField] float m_cellSize;
     [SerializeField] Transform m_parentTransform;
     [SerializeField] GameObject m_obj;
-    [SerializeField] List<VoxelData> m_VoxelList = new List<VoxelData>();
+    [SerializeField] List<GameObject> m_VoxelList = new List<GameObject>();
     
     #endregion
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,7 +17,7 @@ public class S_Grid : MonoBehaviour
 
     void Awake()
     {
-        InitVoxelList();
+        InstantiateVoxels();
     }
 
     // Update is called once per frame
@@ -30,11 +29,6 @@ public class S_Grid : MonoBehaviour
     void InitVoxelList()
     {
         int _gridList = m_GridDimensions.x * m_GridDimensions.y * m_GridDimensions.z;
-
-        for (int i = 0; i < _gridList; i++) 
-        { 
-           m_VoxelList.Add(m_airVoxel); 
-        }
 
         InstantiateVoxels();
 
@@ -59,12 +53,14 @@ public class S_Grid : MonoBehaviour
                         Quaternion.identity, m_parentTransform);
 
                     _obj.transform.localScale = new Vector3(m_cellSize, m_cellSize, m_cellSize);
+
+                    m_VoxelList.Add(_obj);
                    
                     if(_obj.GetComponent<VoxelFunctionality>() != null)
                     {
                         VoxelFunctionality _script = _obj.GetComponent<VoxelFunctionality>();
 
-                        _script.UpdateVoxelType(m_airVoxel);
+                        _script.UpdateVoxelType(m_InitialVoxel);
 
                     }
 

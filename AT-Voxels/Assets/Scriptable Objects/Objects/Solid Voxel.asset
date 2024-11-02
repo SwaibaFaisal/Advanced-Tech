@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Solid Voxel
   m_EditorClassIdentifier: 
   m_type: 1
-  m_material: {fileID: 2100000, guid: 26fe69d6b0f75344caea27d9dbc3107c, type: 2}
+  m_material: {fileID: 2100000, guid: bd8a7bd83fcc4b14ea68cb8874085063, type: 2}
