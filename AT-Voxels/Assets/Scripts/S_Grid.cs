@@ -59,9 +59,9 @@ public class S_Grid : MonoBehaviour
                     if(_obj.GetComponent<VoxelFunctionality>() != null)
                     {
                         VoxelFunctionality _script = _obj.GetComponent<VoxelFunctionality>();
-
+                        _script.SetIndex(new Vector3(i,j,k));
                         _script.UpdateVoxelType(m_InitialVoxel);
-
+                       
                     }
 
                 }
