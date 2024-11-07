@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 public class S_Grid : MonoBehaviour
 {
     #region variable info 
@@ -69,5 +71,10 @@ public class S_Grid : MonoBehaviour
         }
     }
 
+
+    public void OnInteract(InputAction.CallbackContext _context)
+    {
+        print("clicked");
+    }
 
 }

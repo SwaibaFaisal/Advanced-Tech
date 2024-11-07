@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bd8a7bd83fcc4b14ea68cb8874085063, type: 2}
+  - {fileID: 2100000, guid: e326e8a73b442d44eba7854934880e7f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,3 +124,4 @@ MonoBehaviour:
   m_currentVoxelData: {fileID: 11400000, guid: 8f0b2ac37bdd81f4ea10bdb8c4092f4d, type: 2}
   m_currentMaterial: {fileID: 2100000, guid: bd8a7bd83fcc4b14ea68cb8874085063, type: 2}
   m_meshRenderer: {fileID: 1778190984177443825}
+  m_faces: []
