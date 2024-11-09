@@ -31,7 +31,7 @@ public class VoxelFunctionality : MonoBehaviour
     public void DeselectVoxel()
     {
        m_isHighlighted = false;
-       UpdateHighlightedMaterial(1, m_blankMaterial);
+       UpdateHighlightedMaterial(1,null);
     }
 
     public void UpdateHighlightedMaterial(int _index, Material _material)

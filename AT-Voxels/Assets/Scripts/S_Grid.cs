@@ -46,12 +46,16 @@ public class S_Grid : MonoBehaviour
                 for (int k = 0; k < m_GridDimensions.z; k++)
                 {
                     Vector3 _indexes = new Vector3(i,j,k) * m_cellSize;
-                    
+                    Vector3 _offset = new Vector3 (
+                        (float)m_GridDimensions.x / 2, 
+                        (float)m_GridDimensions.y / 2,
+                        (float)m_GridDimensions.z / 2) 
+                        * - 1;
                    // creates a gameobject to store voxel in temporarily
 
                    GameObject _obj = 
                     Instantiate(m_obj,
-                        (m_parentTransform.position + _indexes), 
+                        (m_parentTransform.position + _indexes + _offset), 
                         Quaternion.identity, m_parentTransform);
 
                     _obj.transform.localScale = new Vector3(m_cellSize, m_cellSize, m_cellSize);
