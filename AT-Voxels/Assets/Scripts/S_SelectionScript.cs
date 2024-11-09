@@ -5,6 +5,7 @@ public class SelectionScript : MonoBehaviour
 
     Camera m_cam;
     [SerializeField] LayerMask m_hittableLayer;
+    [SerializeField] VoxelFunctionality m_previousScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,9 +27,30 @@ public class SelectionScript : MonoBehaviour
         {
            VoxelFunctionality _script = 
                 _hitData.collider.gameObject.GetComponentInParent<VoxelFunctionality>();
+            
 
-            _script.SelectVoxel();
+            if( _script != null )
+            {
+                if(m_previousScript == null)
+                {
+                    _script.SelectVoxel();
+                    m_previousScript = _script;
+                }
+                else if(_script.GetIndex() != m_previousScript.GetIndex())
+                {
+                    m_previousScript.DeselectVoxel();
+                    _script.SelectVoxel();
+                    m_previousScript = _script;
+                }
+
+            }
+            
         }
+        else if(m_previousScript != null)
+        {
+            m_previousScript.DeselectVoxel();
+        }
+        
        
     }
 

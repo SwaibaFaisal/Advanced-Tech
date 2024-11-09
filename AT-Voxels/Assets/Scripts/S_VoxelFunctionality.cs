@@ -7,7 +7,8 @@ public class VoxelFunctionality : MonoBehaviour
 {
     [SerializeField] VoxelData m_currentVoxelData = null;
     [SerializeField] Material m_currentMaterial;
-    [SerializeField] Material m_HighlightMaterial;
+    [SerializeField] Material m_highlightMaterial;
+    [SerializeField] Material m_blankMaterial;
     [SerializeField] bool m_isHighlighted = false;
     Vector3 m_index;
     [SerializeField] List<GameObject> m_faces = new List<GameObject>();
@@ -24,12 +25,13 @@ public class VoxelFunctionality : MonoBehaviour
     public void SelectVoxel()
     {
         m_isHighlighted = true;
-        UpdateHighlightedMaterial(0, m_HighlightMaterial);
+        UpdateHighlightedMaterial(1, m_highlightMaterial);
     }
 
     public void DeselectVoxel()
     {
-        m_isHighlighted = false;
+       m_isHighlighted = false;
+       UpdateHighlightedMaterial(1, m_blankMaterial);
     }
 
     public void UpdateHighlightedMaterial(int _index, Material _material)

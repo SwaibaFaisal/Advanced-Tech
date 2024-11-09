@@ -47,7 +47,7 @@ public class VoxelFace : MonoBehaviour
     public void UpdateAdditionalMaterials(int _index, Material _material)
     {
        Material[] _materialArray = m_meshRenderer.materials;
-        _materialArray[1] = _material;
+       _materialArray[_index] = _material;
 
         m_meshRenderer.materials = _materialArray;
     }

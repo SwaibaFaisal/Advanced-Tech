@@ -206,7 +206,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.23700103, y: -0, z: -0, w: 0.97150946}
-  m_LocalPosition: {x: 0, y: -1.9, z: 3.66}
+  m_LocalPosition: {x: 0.13, y: -1.9, z: 3.66}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -435,7 +435,7 @@ Transform:
   m_GameObject: {fileID: 592633567}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: -5.32, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54001789dbb2f14da856c8d971c9f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GridDimensions: {x: 7, y: 4, z: 1}
+  m_GridDimensions: {x: 5, y: 8, z: 1}
   m_InitialVoxel: {fileID: 11400000, guid: 8f0b2ac37bdd81f4ea10bdb8c4092f4d, type: 2}
   m_cellSize: 0.6
   m_parentTransform: {fileID: 592633568}
@@ -707,6 +707,7 @@ MonoBehaviour:
   m_hittableLayer:
     serializedVersion: 2
     m_Bits: 64
+  m_previousScript: {fileID: 0}
 --- !u!1 &1758346647
 GameObject:
   m_ObjectHideFlags: 0
