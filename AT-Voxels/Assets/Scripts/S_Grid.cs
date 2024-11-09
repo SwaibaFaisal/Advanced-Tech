@@ -74,7 +74,7 @@ public class S_Grid : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext _context)
     {
-        print("clicked");
+
     }
 
 }

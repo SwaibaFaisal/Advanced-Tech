@@ -14,15 +14,20 @@ public class SelectionScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         Vector3 _mousePosition = Input.mousePosition;
 
         Ray _ray = Camera.main.ScreenPointToRay(_mousePosition);
 
         if(Physics.Raycast(_ray, out RaycastHit _hitData, 100, m_hittableLayer))
         {
-            print("hit face");
+           VoxelFunctionality _script = 
+                _hitData.collider.gameObject.GetComponentInParent<VoxelFunctionality>();
+
+            _script.SelectVoxel();
         }
        
     }
+
+    
+
 }
