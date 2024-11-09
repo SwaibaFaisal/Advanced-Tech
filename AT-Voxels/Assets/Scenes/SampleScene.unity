@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54001789dbb2f14da856c8d971c9f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GridDimensions: {x: 2, y: 2, z: 2}
+  m_GridDimensions: {x: 7, y: 4, z: 1}
   m_InitialVoxel: {fileID: 11400000, guid: 8f0b2ac37bdd81f4ea10bdb8c4092f4d, type: 2}
   m_cellSize: 0.6
   m_parentTransform: {fileID: 592633568}

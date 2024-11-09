@@ -18,6 +18,10 @@ public class SelectionScript : MonoBehaviour
 
         Ray _ray = Camera.main.ScreenPointToRay(_mousePosition);
 
+        // does a raycast from parent's transform to the object the mouse is hovering over. 
+        // if the object has the correct layer mask, check for Voxel script in object's parent
+        // if script is found, run "select voxel" function
+
         if(Physics.Raycast(_ray, out RaycastHit _hitData, 100, m_hittableLayer))
         {
            VoxelFunctionality _script = 
