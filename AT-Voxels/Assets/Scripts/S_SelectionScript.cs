@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SelectionScript : MonoBehaviour
 {
@@ -6,6 +7,7 @@ public class SelectionScript : MonoBehaviour
     Camera m_cam;
     [SerializeField] LayerMask m_hittableLayer;
     [SerializeField] VoxelFunctionality m_previousScript;
+    [SerializeField] VoxelFunctionality m_currentScript;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -25,22 +27,22 @@ public class SelectionScript : MonoBehaviour
 
         if(Physics.Raycast(_ray, out RaycastHit _hitData, 100, m_hittableLayer))
         {
-           VoxelFunctionality _script = 
+           m_currentScript = 
                 _hitData.collider.gameObject.GetComponentInParent<VoxelFunctionality>();
             
 
-            if( _script != null )
+            if( m_currentScript  != null )
             {
                 if(m_previousScript == null)
                 {
-                    _script.SelectVoxel();
-                    m_previousScript = _script;
+                    m_currentScript.SelectVoxel();
+                    m_previousScript = m_currentScript;
                 }
-                else if(_script.GetIndex() != m_previousScript.GetIndex())
+                else if(m_currentScript.GetIndex() != m_previousScript.GetIndex())
                 {
                     m_previousScript.DeselectVoxel();
-                    _script.SelectVoxel();
-                    m_previousScript = _script;
+                    m_currentScript.SelectVoxel();
+                    m_previousScript = m_currentScript;
                 }
 
             }
@@ -49,11 +51,21 @@ public class SelectionScript : MonoBehaviour
         else if(m_previousScript != null)
         {
             m_previousScript.DeselectVoxel();
+            m_currentScript = null;
         }
-        
        
     }
 
+    public void OnVoxelClicked(InputAction.CallbackContext _context)
+    {
+        if(m_currentScript != null)
+        {
+            m_currentScript.Clicked();
+
+        }
+
+
+    }
     
 
 }

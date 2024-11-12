@@ -67,4 +67,9 @@ public class VoxelFunctionality : MonoBehaviour
        // print(_i);
     }
 
+    public void Clicked()
+    {
+        print(m_index);
+    }
+
 }

@@ -222,8 +222,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -3, z: 0}
-  m_LocalScale: {x: 5, y: 3, z: 5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 8, y: 4.8, z: 8}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -539,9 +539,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54001789dbb2f14da856c8d971c9f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GridDimensions: {x: 3, y: 3, z: 3}
+  m_GridDimensions: {x: 8, y: 3, z: 3}
   m_InitialVoxel: {fileID: 11400000, guid: 8f0b2ac37bdd81f4ea10bdb8c4092f4d, type: 2}
-  m_cellSize: 0.6
+  m_cellSize: 0.5
   m_parentTransform: {fileID: 592633568}
   m_obj: {fileID: 1256266956050001880, guid: 8b20a4c0ea466f34f975ed52ecfaa105, type: 3}
   m_VoxelList: []
@@ -584,9 +584,9 @@ MonoBehaviour:
     m_ActionName: 'Player/Attack[/Mouse/leftButton,/Keyboard/enter]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1282244362}
-        m_TargetAssemblyTypeName: S_Grid, Assembly-CSharp
-        m_MethodName: OnInteract
+      - m_Target: {fileID: 1282244364}
+        m_TargetAssemblyTypeName: SelectionScript, Assembly-CSharp
+        m_MethodName: OnVoxelClicked
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -679,6 +679,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   m_previousScript: {fileID: 0}
+  m_currentScript: {fileID: 0}
 --- !u!1 &1446995446
 GameObject:
   m_ObjectHideFlags: 0
