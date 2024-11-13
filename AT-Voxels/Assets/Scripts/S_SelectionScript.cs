@@ -8,6 +8,9 @@ public class SelectionScript : MonoBehaviour
     [SerializeField] LayerMask m_hittableLayer;
     [SerializeField] VoxelFunctionality m_previousScript;
     [SerializeField] VoxelFunctionality m_currentScript;
+    [SerializeField] VoxelData m_airVoxel;
+    [SerializeField] VoxelData m_solidVoxel;
+    [SerializeField] GameEvent m_indexChangedEvent;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -37,12 +40,14 @@ public class SelectionScript : MonoBehaviour
                 {
                     m_currentScript.SelectVoxel();
                     m_previousScript = m_currentScript;
+                    m_indexChangedEvent.Raise(this, m_currentScript.GetIndex());
                 }
                 else if(m_currentScript.GetIndex() != m_previousScript.GetIndex())
                 {
                     m_previousScript.DeselectVoxel();
                     m_currentScript.SelectVoxel();
                     m_previousScript = m_currentScript;
+                    m_indexChangedEvent.Raise(this, m_currentScript.GetIndex());
                 }
 
             }
@@ -52,17 +57,22 @@ public class SelectionScript : MonoBehaviour
         {
             m_previousScript.DeselectVoxel();
             m_currentScript = null;
+            m_indexChangedEvent.Raise(this, null);
         }
        
     }
 
     public void OnVoxelClicked(InputAction.CallbackContext _context)
     {
-        if(m_currentScript != null)
+        if(_context.started)
         {
-            m_currentScript.Clicked();
+            if(m_currentScript != null)
+            {
+                m_currentScript.Break(m_airVoxel);
+            }
 
         }
+
 
 
     }
