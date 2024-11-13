@@ -1157,13 +1157,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 598583303369942522, guid: 8b20a4c0ea466f34f975ed52ecfaa105, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e326e8a73b442d44eba7854934880e7f, type: 2}
     - target: {fileID: 1256266956050001880, guid: 8b20a4c0ea466f34f975ed52ecfaa105, type: 3}
       propertyPath: m_Name
       value: Voxel Prefab (new)
       objectReference: {fileID: 0}
     - target: {fileID: 1256266956050001880, guid: 8b20a4c0ea466f34f975ed52ecfaa105, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5879402247232292741, guid: 8b20a4c0ea466f34f975ed52ecfaa105, type: 3}
       propertyPath: m_LocalPosition.x
