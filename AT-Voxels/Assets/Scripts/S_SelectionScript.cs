@@ -1,9 +1,20 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum E_BrushType 
+{ 
+    //0
+    PAINT,
+    //1
+    ERASE,
+    //2
+    PLACE,
+
+}
+
+
 public class SelectionScript : MonoBehaviour
 {
-
     Camera m_cam;
     [SerializeField] LayerMask m_hittableLayer;
     [SerializeField] VoxelFunctionality m_previousScript;
@@ -11,10 +22,13 @@ public class SelectionScript : MonoBehaviour
     [SerializeField] VoxelData m_airVoxel;
     [SerializeField] VoxelData m_solidVoxel;
     [SerializeField] GameEvent m_indexChangedEvent;
+    bool m_eraserOn = false;
+    E_BrushType m_brushType;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         m_cam = Camera.main;
+        m_brushType = E_BrushType.PAINT;
     }
 
     // Update is called once per frame
@@ -62,20 +76,46 @@ public class SelectionScript : MonoBehaviour
        
     }
 
+    public void ToggleBrushType()
+    {
+       if((int)m_brushType <= 1)
+       {
+            m_brushType += 1;
+       }
+       else
+       {
+            m_brushType = 0;
+       }
+
+       
+    }
+
     public void OnVoxelClicked(InputAction.CallbackContext _context)
     {
-        if(_context.started)
+        if(_context.started && m_currentScript != null)
         {
-            if(m_currentScript != null)
+            switch(m_brushType)
             {
-                m_currentScript.Break(m_airVoxel);
+                case (E_BrushType)0:
+                    m_currentScript.Paint(m_airVoxel);
+                    break;
+                case (E_BrushType)1:
+                    m_currentScript.Break();
+                    break;
             }
 
+
+         /*   if (m_eraserOn)
+            {
+                m_currentScript.Break();
+            }
+            else
+            {
+                m_currentScript.Paint(m_airVoxel);
+            }
+*/
         }
-
-
-
     }
-    
+
 
 }

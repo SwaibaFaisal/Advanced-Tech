@@ -88,12 +88,14 @@ public class VoxelFunctionality : MonoBehaviour
 
     }
 
-    public void Break(VoxelData _voxelData)
+    public void Break()
     {
         Destroy(this.gameObject);
-       /* m_isAir = true;
-        UpdateBaseMaterials(_voxelData.GetMaterial);*/
-        
+    }
+
+    public void Paint(VoxelData _voxelData)
+    {
+        UpdateBaseMaterials(_voxelData.GetMaterial);
     }
 
 }
