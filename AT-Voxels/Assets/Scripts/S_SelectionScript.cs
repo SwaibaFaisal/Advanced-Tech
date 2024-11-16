@@ -102,18 +102,13 @@ public class SelectionScript : MonoBehaviour
                 case (E_BrushType)1:
                     m_currentScript.Break();
                     break;
+                case (E_BrushType)2:
+                    print("place block");
+                    break;
             }
 
 
-         /*   if (m_eraserOn)
-            {
-                m_currentScript.Break();
-            }
-            else
-            {
-                m_currentScript.Paint(m_airVoxel);
-            }
-*/
+         
         }
     }
 
