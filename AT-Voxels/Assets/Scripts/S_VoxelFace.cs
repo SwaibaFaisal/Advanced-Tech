@@ -17,9 +17,10 @@ public enum E_VoxelFaceType
 };
 public class VoxelFace : MonoBehaviour
 {
-    [SerializeField] bool m_isAir;
+    bool m_isHighlighted;
     [SerializeField] float m_raycastDistance;
-    [SerializeField] Transform m_raycastOrigin;
+    [SerializeField] Transform m_originTransform;
+    Transform m_transform;
     [SerializeField] List<GameObject> m_meshes = new List<GameObject>();
 
 
@@ -27,17 +28,12 @@ public class VoxelFace : MonoBehaviour
     GameObject m_thisObject;
     E_VoxelFaceType m_type;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    public void UpdateHighlightState(bool _state)
     {
-        
+        m_isHighlighted = _state;
+        print("changed to: " + _state);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
    
     public void UpdateBaseMaterial(Material _newMaterial)
     {

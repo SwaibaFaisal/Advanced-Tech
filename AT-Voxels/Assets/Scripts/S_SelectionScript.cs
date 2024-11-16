@@ -16,14 +16,22 @@ public enum E_BrushType
 public class SelectionScript : MonoBehaviour
 {
     Camera m_cam;
+   
+    VoxelFunctionality m_previousVoxelScript;
+    VoxelFunctionality m_currentVoxelScript;
+    VoxelFace m_previousFaceScript;
+    VoxelFace m_currentFaceScript;
+
+    E_BrushType m_brushType;
+
     [SerializeField] LayerMask m_hittableLayer;
-    [SerializeField] VoxelFunctionality m_previousScript;
-    [SerializeField] VoxelFunctionality m_currentScript;
     [SerializeField] VoxelData m_airVoxel;
     [SerializeField] VoxelData m_solidVoxel;
     [SerializeField] GameEvent m_indexChangedEvent;
+    
     bool m_eraserOn = false;
-    E_BrushType m_brushType;
+    
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,43 +42,63 @@ public class SelectionScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //revise, is it wise to mix modern + legacy input systems???????
         Vector3 _mousePosition = Input.mousePosition;
 
         Ray _ray = Camera.main.ScreenPointToRay(_mousePosition);
 
+        TestRaycastFromCursor(_mousePosition);
+
         // does a raycast from parent's transform to the object the mouse is hovering over. 
         // if the object has the correct layer mask, check for Voxel script in object's parent
-        // if script is found, run "select voxel" function
+        // if script is found, run "select voxel" functionality
 
         if(Physics.Raycast(_ray, out RaycastHit _hitData, 100, m_hittableLayer))
         {
-           m_currentScript = 
+           m_currentVoxelScript = 
                 _hitData.collider.gameObject.GetComponentInParent<VoxelFunctionality>();
-            
+            m_currentFaceScript = 
+                _hitData.collider.gameObject.GetComponentInParent<VoxelFace>();
 
-            if( m_currentScript  != null )
+            if (m_currentFaceScript == null)
+            { print("null face script"); }
+
+            if( m_currentVoxelScript  != null)
             {
-                if(m_previousScript == null)
+                if(m_previousVoxelScript == null)
                 {
-                    m_currentScript.SelectVoxel();
-                    m_previousScript = m_currentScript;
-                    m_indexChangedEvent.Raise(this, m_currentScript.GetIndex());
+                    m_currentVoxelScript.SelectVoxel();
+                    m_previousVoxelScript = m_currentVoxelScript;
+
+                    m_currentFaceScript.UpdateHighlightState(true);
+                    m_previousFaceScript = m_currentFaceScript;
+
+                    m_indexChangedEvent.Raise(this, m_currentVoxelScript.GetIndex());
                 }
-                else if(m_currentScript.GetIndex() != m_previousScript.GetIndex())
+                else if(m_currentVoxelScript.GetIndex() != m_previousVoxelScript.GetIndex())
                 {
-                    m_previousScript.DeselectVoxel();
-                    m_currentScript.SelectVoxel();
-                    m_previousScript = m_currentScript;
-                    m_indexChangedEvent.Raise(this, m_currentScript.GetIndex());
+                    m_previousVoxelScript.DeselectVoxel();
+                    m_currentVoxelScript.SelectVoxel();
+                    m_previousVoxelScript = m_currentVoxelScript;
+
+                    m_previousFaceScript.UpdateHighlightState(false);
+                    m_currentFaceScript.UpdateHighlightState(true);
+                    m_previousFaceScript = m_currentFaceScript;
+
+                    m_indexChangedEvent.Raise(this, m_currentVoxelScript.GetIndex());
                 }
 
             }
             
         }
-        else if(m_previousScript != null)
+        else if(m_previousVoxelScript != null)
         {
-            m_previousScript.DeselectVoxel();
-            m_currentScript = null;
+            m_previousVoxelScript.DeselectVoxel();
+            m_currentVoxelScript = null;
+
+            m_previousFaceScript.UpdateHighlightState(false);
+            m_currentFaceScript = null;
+
             m_indexChangedEvent.Raise(this, null);
         }
        
@@ -92,15 +120,15 @@ public class SelectionScript : MonoBehaviour
 
     public void OnVoxelClicked(InputAction.CallbackContext _context)
     {
-        if(_context.started && m_currentScript != null)
+        if(_context.started && m_currentVoxelScript != null)
         {
             switch(m_brushType)
             {
                 case (E_BrushType)0:
-                    m_currentScript.Paint(m_airVoxel);
+                    m_currentVoxelScript.Paint(m_airVoxel);
                     break;
                 case (E_BrushType)1:
-                    m_currentScript.Break();
+                    m_currentVoxelScript.Break();
                     break;
                 case (E_BrushType)2:
                     print("place block");
@@ -112,5 +140,10 @@ public class SelectionScript : MonoBehaviour
         }
     }
 
+
+    private void TestRaycastFromCursor(Vector3 _mousePos)
+    {
+        
+    }
 
 }

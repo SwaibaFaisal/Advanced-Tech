@@ -54,7 +54,7 @@ MonoBehaviour:
   m_currentMaterial: {fileID: 2100000, guid: 548ccf21ff017a941a5f281f57f33a48, type: 2}
   m_highlightMaterial: {fileID: 2100000, guid: 2f4f04e9374c755449b3cc2d058e9758, type: 2}
   m_blankMaterial: {fileID: 2100000, guid: 548ccf21ff017a941a5f281f57f33a48, type: 2}
-  m_isHighlighted: 0
+  m_isAir: 0
   m_faces:
   - {fileID: 5971688039493942422}
   - {fileID: 8830084201339902074}

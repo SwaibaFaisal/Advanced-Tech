@@ -944,8 +944,6 @@ MonoBehaviour:
   m_hittableLayer:
     serializedVersion: 2
     m_Bits: 64
-  m_previousScript: {fileID: 0}
-  m_currentScript: {fileID: 0}
   m_airVoxel: {fileID: 11400000, guid: fbefdd2e81aac0649b55ae12c630d574, type: 2}
   m_solidVoxel: {fileID: 11400000, guid: 8f0b2ac37bdd81f4ea10bdb8c4092f4d, type: 2}
   m_indexChangedEvent: {fileID: 11400000, guid: 29d78840447b926488dd3f69ffab7cb2, type: 2}

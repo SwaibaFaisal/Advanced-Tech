@@ -156,9 +156,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a94ff5e1daf1b4586a9edf7a5cb603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_isAir: 0
   m_raycastDistance: 0
-  m_raycastOrigin: {fileID: 0}
+  m_origin: {fileID: 3566349430037606897}
   m_meshes:
   - {fileID: 1400463435644984999}
 --- !u!1 &3461344735442068997
