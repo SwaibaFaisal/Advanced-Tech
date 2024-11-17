@@ -9,6 +9,7 @@ public class VoxelFunctionality : MonoBehaviour
     [SerializeField] Material m_currentMaterial;
     [SerializeField] Material m_highlightMaterial;
     [SerializeField] Material m_blankMaterial;
+    [SerializeField] float m_scaleSize;
     [SerializeField] bool m_isAir = false;
     
     Vector3 m_index;
@@ -85,6 +86,15 @@ public class VoxelFunctionality : MonoBehaviour
     public void SetIndex(Vector3 _i)
     {
         m_index = _i;
+    }
+
+    public void SetScaleFloats(float _scale)
+    {
+        for (int i = 0; i < m_faces.Count; i++)
+        {
+            VoxelFace _script = m_faces[i].GetComponent<VoxelFace>();
+            _script.UpdateOriginSpawnPoint(_scale);
+        }
 
     }
 
