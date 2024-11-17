@@ -157,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_raycastDistance: 0
-  m_originTransform: {fileID: 3566349430037606897}
+  m_origin: {fileID: 3566349430037606897}
   m_meshes:
   - {fileID: 1400463435644984999}
 --- !u!1 &3461344735442068997

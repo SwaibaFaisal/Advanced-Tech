@@ -22,29 +22,6 @@ public class S_Grid : MonoBehaviour
         InstantiateVoxels();
     }
 
-    public void PlaceNewBlock(Component _sender, object _data)
-    {
-        if(_data is Vector3)
-        {
-           
-            GameObject _obj = Instantiate(m_obj, (Vector3)_data + new Vector3(0,0,0), Quaternion.identity);
-
-            _obj.transform.localScale = new Vector3(m_cellSize, m_cellSize, m_cellSize);
-
-            m_VoxelList.Add(_obj);
-
-            if (_obj.GetComponent<VoxelFunctionality>() != null)
-            {
-                VoxelFunctionality _script = _obj.GetComponent<VoxelFunctionality>();
-                _script.UpdateVoxelType(m_InitialVoxel);
-                _script.SetScaleFloats(m_cellSize);
-
-            }
-
-            print( (Vector3) _data );
-        }
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -88,8 +65,8 @@ public class S_Grid : MonoBehaviour
                     if(_obj.GetComponent<VoxelFunctionality>() != null)
                     {
                         VoxelFunctionality _script = _obj.GetComponent<VoxelFunctionality>();
+                        _script.SetIndex(new Vector3(i,j,k));
                         _script.UpdateVoxelType(m_InitialVoxel);
-                        _script.SetScaleFloats(m_cellSize);
                        
                     }
 

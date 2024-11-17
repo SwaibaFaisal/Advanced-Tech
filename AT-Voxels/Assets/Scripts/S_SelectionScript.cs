@@ -27,8 +27,9 @@ public class SelectionScript : MonoBehaviour
     [SerializeField] LayerMask m_hittableLayer;
     [SerializeField] VoxelData m_airVoxel;
     [SerializeField] VoxelData m_solidVoxel;
-    [SerializeField] GameEvent m_placeBlockEvent;
-    [SerializeField] GameObject m_testObject;
+    [SerializeField] GameEvent m_indexChangedEvent;
+    
+    bool m_eraserOn = false;
     
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -46,7 +47,8 @@ public class SelectionScript : MonoBehaviour
 
         Ray _ray = Camera.main.ScreenPointToRay(_mousePosition);
 
-     
+        TestRaycastFromCursor(_mousePosition);
+
         // does a raycast from parent's transform to the object the mouse is hovering over. 
         // if the object has the correct layer mask, check for Voxel script in object's parent
         // if script is found, run "select voxel" functionality
@@ -71,7 +73,7 @@ public class SelectionScript : MonoBehaviour
                     m_currentFaceScript.UpdateHighlightState(true);
                     m_previousFaceScript = m_currentFaceScript;
 
-
+                    m_indexChangedEvent.Raise(this, m_currentVoxelScript.GetIndex());
                 }
                 else if(m_currentVoxelScript.GetIndex() != m_previousVoxelScript.GetIndex())
                 {
@@ -83,7 +85,7 @@ public class SelectionScript : MonoBehaviour
                     m_currentFaceScript.UpdateHighlightState(true);
                     m_previousFaceScript = m_currentFaceScript;
 
-
+                    m_indexChangedEvent.Raise(this, m_currentVoxelScript.GetIndex());
                 }
 
             }
@@ -97,6 +99,7 @@ public class SelectionScript : MonoBehaviour
             m_previousFaceScript.UpdateHighlightState(false);
             m_currentFaceScript = null;
 
+            m_indexChangedEvent.Raise(this, null);
         }
        
     }
@@ -111,6 +114,8 @@ public class SelectionScript : MonoBehaviour
        {
             m_brushType = 0;
        }
+
+       
     }
 
     public void OnVoxelClicked(InputAction.CallbackContext _context)
@@ -126,10 +131,19 @@ public class SelectionScript : MonoBehaviour
                     m_currentVoxelScript.Break();
                     break;
                 case (E_BrushType)2:
-                    m_placeBlockEvent.Raise(this, m_currentFaceScript.GetOriginTransform.position);
+                    print("place block");
                     break;
             }
+
+
          
         }
     }
+
+
+    private void TestRaycastFromCursor(Vector3 _mousePos)
+    {
+        
+    }
+
 }
