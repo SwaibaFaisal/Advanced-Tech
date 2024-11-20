@@ -739,6 +739,7 @@ GameObject:
   - component: {fileID: 1282244362}
   - component: {fileID: 1282244363}
   - component: {fileID: 1282244364}
+  - component: {fileID: 1282244365}
   m_Layer: 0
   m_Name: Grid Manager
   m_TagString: Untagged
@@ -947,6 +948,35 @@ MonoBehaviour:
   m_airVoxel: {fileID: 11400000, guid: fbefdd2e81aac0649b55ae12c630d574, type: 2}
   m_solidVoxel: {fileID: 11400000, guid: 8f0b2ac37bdd81f4ea10bdb8c4092f4d, type: 2}
   m_indexChangedEvent: {fileID: 11400000, guid: 29d78840447b926488dd3f69ffab7cb2, type: 2}
+  m_blockPlacedEvent: {fileID: 11400000, guid: 25f034e43f10081469e342d23ac90607, type: 2}
+--- !u!114 &1282244365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282244360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f4c3b017d0c0a34cb8ddd458f72bcbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_gameEvent: {fileID: 11400000, guid: 25f034e43f10081469e342d23ac90607, type: 2}
+  m_gameResponse:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1282244362}
+        m_TargetAssemblyTypeName: S_Grid, Assembly-CSharp
+        m_MethodName: OnBlockPlaced
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1407216750
 GameObject:
   m_ObjectHideFlags: 0

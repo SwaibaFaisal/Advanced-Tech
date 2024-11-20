@@ -28,6 +28,9 @@ public class SelectionScript : MonoBehaviour
     [SerializeField] VoxelData m_airVoxel;
     [SerializeField] VoxelData m_solidVoxel;
     [SerializeField] GameEvent m_indexChangedEvent;
+    [SerializeField] GameEvent m_blockPlacedEvent;
+
+    RaycastHit m_rayCastHitData;
     
     bool m_eraserOn = false;
     
@@ -55,7 +58,10 @@ public class SelectionScript : MonoBehaviour
 
         if(Physics.Raycast(_ray, out RaycastHit _hitData, 100, m_hittableLayer))
         {
-           m_currentVoxelScript = 
+
+           m_rayCastHitData = _hitData;
+           
+            m_currentVoxelScript = 
                 _hitData.collider.gameObject.GetComponentInParent<VoxelFunctionality>();
             m_currentFaceScript = 
                 _hitData.collider.gameObject.GetComponentInParent<VoxelFace>();
@@ -104,6 +110,11 @@ public class SelectionScript : MonoBehaviour
        
     }
 
+    public void BuildBlock()
+    {
+        m_blockPlacedEvent.Raise(this, m_currentFaceScript.GetOriginTransform);
+    }
+
     public void ToggleBrushType()
     {
        if((int)m_brushType <= 1)
@@ -131,7 +142,7 @@ public class SelectionScript : MonoBehaviour
                     m_currentVoxelScript.Break();
                     break;
                 case (E_BrushType)2:
-                    print("place block");
+                    BuildBlock();
                     break;
             }
 

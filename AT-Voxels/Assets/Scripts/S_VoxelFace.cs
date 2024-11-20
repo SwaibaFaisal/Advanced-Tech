@@ -23,6 +23,7 @@ public class VoxelFace : MonoBehaviour
     Transform m_transform;
     [SerializeField] List<GameObject> m_meshes = new List<GameObject>();
 
+    public Transform GetOriginTransform => m_originTransform;
 
     Material m_currentMaterial;
     GameObject m_thisObject;
@@ -31,7 +32,7 @@ public class VoxelFace : MonoBehaviour
     public void UpdateHighlightState(bool _state)
     {
         m_isHighlighted = _state;
-        print("changed to: " + _state);
+
     }
 
    

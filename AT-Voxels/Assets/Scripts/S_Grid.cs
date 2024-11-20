@@ -76,9 +76,28 @@ public class S_Grid : MonoBehaviour
     }
 
 
-    public void OnInteract(InputAction.CallbackContext _context)
+    public void OnBlockPlaced(Component _sender, object _data)
     {
+        if(_data is Transform)
+        {
+            Transform _transform = (Transform)_data;
 
+            GameObject _obj =
+                    Instantiate(m_obj,_transform.position,
+                        Quaternion.identity, m_parentTransform);
+
+            _obj.transform.localScale = new Vector3(m_cellSize, m_cellSize, m_cellSize);
+
+            m_VoxelList.Add(_obj);
+
+            if (_obj.GetComponent<VoxelFunctionality>() != null)
+            {
+                VoxelFunctionality _script = _obj.GetComponent<VoxelFunctionality>();
+                _script.UpdateVoxelType(m_InitialVoxel);
+
+            }
+
+        }
     }
 
 }
