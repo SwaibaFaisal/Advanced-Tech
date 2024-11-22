@@ -22,12 +22,6 @@ public class S_Grid : MonoBehaviour
         InstantiateVoxels();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void InitVoxelList()
     {
         int _gridList = m_GridDimensions.x * m_GridDimensions.y * m_GridDimensions.z;

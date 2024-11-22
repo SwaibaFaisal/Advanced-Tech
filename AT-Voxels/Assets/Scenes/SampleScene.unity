@@ -774,8 +774,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54001789dbb2f14da856c8d971c9f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GridDimensions: {x: 5, y: 5, z: 5}
-  m_InitialVoxel: {fileID: 11400000, guid: 8f0b2ac37bdd81f4ea10bdb8c4092f4d, type: 2}
+  m_GridDimensions: {x: 5, y: 2, z: 5}
+  m_InitialVoxel: {fileID: 11400000, guid: fbefdd2e81aac0649b55ae12c630d574, type: 2}
   m_cellSize: 0.5
   m_parentTransform: {fileID: 592633568}
   m_obj: {fileID: 1256266956050001880, guid: 8b20a4c0ea466f34f975ed52ecfaa105, type: 3}
@@ -1467,7 +1467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1256266956050001880, guid: 8b20a4c0ea466f34f975ed52ecfaa105, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5879402247232292741, guid: 8b20a4c0ea466f34f975ed52ecfaa105, type: 3}
       propertyPath: m_LocalPosition.x
