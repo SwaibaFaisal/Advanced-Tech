@@ -12,16 +12,11 @@ public enum E_BrushType
 
 }
 
-public enum E_BlockSelected
-{
-
-
-
-}
-
 
 public class SelectionScript : MonoBehaviour
 {
+    VoxelPlacer m_voxelPlacer;
+
     Camera m_cam;
    
     VoxelFunctionality m_previousVoxelScript;
@@ -32,22 +27,19 @@ public class SelectionScript : MonoBehaviour
     E_BrushType m_brushType;
 
     [SerializeField] LayerMask m_hittableLayer;
-    [SerializeField] VoxelData m_airVoxel;
-    [SerializeField] VoxelData m_solidVoxel;
-    [SerializeField] GameEvent m_indexChangedEvent;
-    [SerializeField] GameEvent m_blockPlacedEvent;
 
-    RaycastHit m_rayCastHitData;
-    
-    bool m_eraserOn = false;
-    
+    VoxelData m_selectedVoxelData;
    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         m_cam = Camera.main;
+        m_voxelPlacer = this.gameObject.GetComponent<VoxelPlacer>();
         m_brushType = E_BrushType.PAINT;
+        m_selectedVoxelData = m_voxelPlacer.GetVoxelTypes.GetGrayVoxel;
     }
+
+
 
     // Update is called once per frame
     void Update()
@@ -57,8 +49,6 @@ public class SelectionScript : MonoBehaviour
 
         Ray _ray = Camera.main.ScreenPointToRay(_mousePosition);
 
-   
-
         // does a raycast from parent's transform to the object the mouse is hovering over. 
         // if the object has the correct layer mask, check for Voxel script in object's parent
         // if script is found, run "select voxel" functionality
@@ -66,7 +56,7 @@ public class SelectionScript : MonoBehaviour
         if(Physics.Raycast(_ray, out RaycastHit _hitData, 100, m_hittableLayer))
         {
 
-           m_rayCastHitData = _hitData;
+        
            
             m_currentVoxelScript = 
                 _hitData.collider.gameObject.GetComponentInParent<VoxelFunctionality>();
@@ -82,23 +72,16 @@ public class SelectionScript : MonoBehaviour
                 {
                     m_currentVoxelScript.SelectVoxel();
                     m_previousVoxelScript = m_currentVoxelScript;
-
-                    
                     m_previousFaceScript = m_currentFaceScript;
-
                 }
                 else if(!m_currentVoxelScript.GetIsHighlighted)
                 {
                     m_previousVoxelScript.DeselectVoxel();
                     m_currentVoxelScript.SelectVoxel();
                     m_previousVoxelScript = m_currentVoxelScript;
-
-                    
+           
                     m_previousFaceScript = m_currentFaceScript;
-
-
                 }
-
             }
             
         }
@@ -106,33 +89,14 @@ public class SelectionScript : MonoBehaviour
         {
             m_previousVoxelScript.DeselectVoxel();
             m_currentVoxelScript = null;
-
-            
             m_currentFaceScript = null;
 
-            m_indexChangedEvent.Raise(this, null);
+
         }
        
     }
 
-    public void BuildBlock()
-    {
-        m_blockPlacedEvent.Raise(this, m_currentFaceScript.GetOriginTransform);
-    }
 
-    public void ToggleBrushType()
-    {
-       if((int)m_brushType <= 1)
-       {
-            m_brushType += 1;
-       }
-       else
-       {
-            m_brushType = 0;
-       }
-
-       
-    }
 
     public void OnVoxelClicked(InputAction.CallbackContext _context)
     {
@@ -141,33 +105,56 @@ public class SelectionScript : MonoBehaviour
             switch(m_brushType)
             {
                 case (E_BrushType)0:
-                    m_currentVoxelScript.Paint(m_airVoxel);
+                    m_currentVoxelScript.Paint(m_selectedVoxelData);
                     break;
                 case (E_BrushType)1:
                     m_currentVoxelScript.Break();
                     break;
                 case (E_BrushType)2:
-                    BuildBlock();
+                    m_voxelPlacer.OnBlockPlaced(m_currentFaceScript.GetOriginTransform, m_selectedVoxelData);
                     break;
             }
-
-
-         
         }
     }
 
-    public void OnEraserButtonClicked()
+    public void OnToolButtonClicked(int _type)
     {
-        m_brushType = E_BrushType.ERASE;
+        switch(_type)
+        {
+            case 0:
+                m_brushType = E_BrushType.ERASE;
+                break;
+            case 1:
+                m_brushType = E_BrushType.PAINT;
+                break;
+            case 2:
+                m_brushType = E_BrushType.PLACE;
+                break;
+
+        }
     }
 
-    public void OnPlaceBlockButtonClicked()
+    public void OnMaterialButtonClicked(int _type)
     {
-        m_brushType = E_BrushType.PLACE;
+        switch (_type)
+        {
+            case 0:
+                m_selectedVoxelData = m_voxelPlacer.GetVoxelTypes.GetGrayVoxel;
+                break;
+            case 1:
+                m_selectedVoxelData = m_voxelPlacer.GetVoxelTypes.GetRedVoxel;
+                break;
+            case 2:
+                m_selectedVoxelData = m_voxelPlacer.GetVoxelTypes.GetGreenVoxel;
+                break;
+
+        }
+
     }
 
-   public void OnPaintBlockButtonClicked()
+
+    public void Test(int i)
     {
-        m_brushType = E_BrushType.PAINT;
+        print(i);
     }
 }

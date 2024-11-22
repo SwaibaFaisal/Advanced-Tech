@@ -15,7 +15,7 @@ public enum E_RotationState
     RIGHT,
 }
 
-public class S_CameraControls : MonoBehaviour
+public class CameraControls : MonoBehaviour
 {
     [SerializeField] Transform m_targetTransform;
     [SerializeField] float m_rotationSpeed;

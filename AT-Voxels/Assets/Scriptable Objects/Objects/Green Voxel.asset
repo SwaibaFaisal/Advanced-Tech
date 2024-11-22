@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78935036eab177047a78b49402062655, type: 3}
-  m_Name: Solid Voxel
+  m_Name: Green Voxel
   m_EditorClassIdentifier: 
-  m_type: 1
-  m_material: {fileID: 2100000, guid: e326e8a73b442d44eba7854934880e7f, type: 2}
-  m_name: SOLIF
+  m_type: 2
+  m_material: {fileID: 2100000, guid: 26fe69d6b0f75344caea27d9dbc3107c, type: 2}
+  m_name: GREEN

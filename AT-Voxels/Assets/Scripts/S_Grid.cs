@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class S_Grid : MonoBehaviour
+public class VoxelPlacer : MonoBehaviour
 {
     #region variable info 
     [SerializeField] Vector3Int m_GridDimensions;
@@ -12,10 +12,9 @@ public class S_Grid : MonoBehaviour
     [SerializeField] Transform m_parentTransform;
     [SerializeField] GameObject m_obj;
     [SerializeField] List<GameObject> m_VoxelList = new List<GameObject>();
-    
+    [SerializeField] VoxelTypes m_voxelTypes;
     #endregion
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    public VoxelTypes GetVoxelTypes => m_voxelTypes;
 
     void Awake()
     {
@@ -68,13 +67,8 @@ public class S_Grid : MonoBehaviour
         }
     }
 
-
-    public void OnBlockPlaced(Component _sender, object _data)
+    public void OnBlockPlaced(Transform _transform, VoxelData _voxelData)
     {
-        if(_data is Transform)
-        {
-            Transform _transform = (Transform)_data;
-
             GameObject _obj =
                     Instantiate(m_obj,_transform.position,
                         _transform.rotation, m_parentTransform);
@@ -86,11 +80,8 @@ public class S_Grid : MonoBehaviour
             if (_obj.GetComponent<VoxelFunctionality>() != null)
             {
                 VoxelFunctionality _script = _obj.GetComponent<VoxelFunctionality>();
-                _script.UpdateVoxelType(m_InitialVoxel);
-
+                _script.UpdateVoxelType(_voxelData);
             }
-
-        }
     }
 
 }

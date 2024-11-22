@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78935036eab177047a78b49402062655, type: 3}
-  m_Name: Air Voxel
+  m_Name: Gray Voxel
   m_EditorClassIdentifier: 
   m_type: 0
-  m_material: {fileID: 2100000, guid: 548ccf21ff017a941a5f281f57f33a48, type: 2}
-  m_name: AIR
+  m_material: {fileID: 2100000, guid: bd8a7bd83fcc4b14ea68cb8874085063, type: 2}
+  m_name: GRAY
