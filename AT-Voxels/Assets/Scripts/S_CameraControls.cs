@@ -35,10 +35,10 @@ public class S_CameraControls : MonoBehaviour
                 RotateUpDown(-1);
                 break;
             case (E_RotationState)3:
-                RotateLeftRight(-1);
+                RotateLeftRight(1);
                 break;
             case (E_RotationState)4:
-                RotateLeftRight(1);
+                RotateLeftRight(-1);
                 break;
         }
     }
@@ -95,12 +95,14 @@ public class S_CameraControls : MonoBehaviour
 
     void RotateLeftRight(float _speed)
     {
+        
         transform.RotateAround(m_targetTransform.position, new Vector3(0, 1, 0), _speed);
     }
 
     void RotateUpDown(float _speed)
     {
-        transform.RotateAround(m_targetTransform.position, new Vector3(1, 0, 0), _speed);
+        transform.position = transform.position + new Vector3(0, _speed / 12, 0);
+        //transform.RotateAround(m_targetTransform.position, new Vector3(1, 0, 0), _speed);
     }
 
 
