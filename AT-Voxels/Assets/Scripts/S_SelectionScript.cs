@@ -12,6 +12,13 @@ public enum E_BrushType
 
 }
 
+public enum E_BlockSelected
+{
+
+
+
+}
+
 
 public class SelectionScript : MonoBehaviour
 {
@@ -50,7 +57,7 @@ public class SelectionScript : MonoBehaviour
 
         Ray _ray = Camera.main.ScreenPointToRay(_mousePosition);
 
-        TestRaycastFromCursor(_mousePosition);
+   
 
         // does a raycast from parent's transform to the object the mouse is hovering over. 
         // if the object has the correct layer mask, check for Voxel script in object's parent
@@ -79,9 +86,8 @@ public class SelectionScript : MonoBehaviour
                     
                     m_previousFaceScript = m_currentFaceScript;
 
-                    m_indexChangedEvent.Raise(this, m_currentVoxelScript.GetIndex());
                 }
-                else if(m_currentVoxelScript.GetIndex() != m_previousVoxelScript.GetIndex())
+                else if(!m_currentVoxelScript.GetIsHighlighted)
                 {
                     m_previousVoxelScript.DeselectVoxel();
                     m_currentVoxelScript.SelectVoxel();
@@ -90,7 +96,7 @@ public class SelectionScript : MonoBehaviour
                     
                     m_previousFaceScript = m_currentFaceScript;
 
-                    m_indexChangedEvent.Raise(this, m_currentVoxelScript.GetIndex());
+
                 }
 
             }
@@ -150,10 +156,18 @@ public class SelectionScript : MonoBehaviour
         }
     }
 
-
-    private void TestRaycastFromCursor(Vector3 _mousePos)
+    public void OnEraserButtonClicked()
     {
-        
+        m_brushType = E_BrushType.ERASE;
     }
 
+    public void OnPlaceBlockButtonClicked()
+    {
+        m_brushType = E_BrushType.PLACE;
+    }
+
+   public void OnPaintBlockButtonClicked()
+    {
+        m_brushType = E_BrushType.PAINT;
+    }
 }
