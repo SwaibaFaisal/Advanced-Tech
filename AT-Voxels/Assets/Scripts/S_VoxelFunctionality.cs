@@ -9,7 +9,7 @@ public class VoxelFunctionality : MonoBehaviour
     [SerializeField] Material m_currentMaterial;
     [SerializeField] Material m_highlightMaterial;
     [SerializeField] Material m_blankMaterial;
-    [SerializeField] bool m_isAir = false;
+    [SerializeField] bool m_isHighlighted = false;
     
     Vector3 m_index;
     [SerializeField] List<GameObject> m_faces = new List<GameObject>();
@@ -23,25 +23,7 @@ public class VoxelFunctionality : MonoBehaviour
         }
     }
 
-    void ToggleColliders()
-    {
-        if (m_isAir)
-        {
-            for(int i = 0; i < m_faces.Count; i++)
-            {
-                m_faces[i].GetComponent<Collider>().enabled = false;
-            }
-        }
-        else
-        {
-            for (int i = 0; i < m_faces.Count; i++)
-            {
-                m_faces[i].GetComponent<Collider>().enabled = true;
-            }
-
-        }
-
-    }
+    
 
     public void SelectVoxel()
     {

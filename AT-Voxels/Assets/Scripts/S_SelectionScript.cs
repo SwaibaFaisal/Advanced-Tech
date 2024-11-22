@@ -76,7 +76,7 @@ public class SelectionScript : MonoBehaviour
                     m_currentVoxelScript.SelectVoxel();
                     m_previousVoxelScript = m_currentVoxelScript;
 
-                    m_currentFaceScript.UpdateHighlightState(true);
+                    
                     m_previousFaceScript = m_currentFaceScript;
 
                     m_indexChangedEvent.Raise(this, m_currentVoxelScript.GetIndex());
@@ -87,8 +87,7 @@ public class SelectionScript : MonoBehaviour
                     m_currentVoxelScript.SelectVoxel();
                     m_previousVoxelScript = m_currentVoxelScript;
 
-                    m_previousFaceScript.UpdateHighlightState(false);
-                    m_currentFaceScript.UpdateHighlightState(true);
+                    
                     m_previousFaceScript = m_currentFaceScript;
 
                     m_indexChangedEvent.Raise(this, m_currentVoxelScript.GetIndex());
@@ -102,7 +101,7 @@ public class SelectionScript : MonoBehaviour
             m_previousVoxelScript.DeselectVoxel();
             m_currentVoxelScript = null;
 
-            m_previousFaceScript.UpdateHighlightState(false);
+            
             m_currentFaceScript = null;
 
             m_indexChangedEvent.Raise(this, null);

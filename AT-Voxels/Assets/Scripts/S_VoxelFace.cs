@@ -17,7 +17,6 @@ public enum E_VoxelFaceType
 };
 public class VoxelFace : MonoBehaviour
 {
-    bool m_isHighlighted;
     [SerializeField] float m_raycastDistance;
     [SerializeField] Transform m_originTransform;
     Transform m_transform;
@@ -28,13 +27,6 @@ public class VoxelFace : MonoBehaviour
     Material m_currentMaterial;
     GameObject m_thisObject;
     E_VoxelFaceType m_type;
-
-    public void UpdateHighlightState(bool _state)
-    {
-        m_isHighlighted = _state;
-
-    }
-
    
     public void UpdateBaseMaterial(Material _newMaterial)
     {

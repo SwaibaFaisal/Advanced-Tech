@@ -65,7 +65,6 @@ public class S_Grid : MonoBehaviour
                     if(_obj.GetComponent<VoxelFunctionality>() != null)
                     {
                         VoxelFunctionality _script = _obj.GetComponent<VoxelFunctionality>();
-                        _script.SetIndex(new Vector3(i,j,k));
                         _script.UpdateVoxelType(m_InitialVoxel);
                        
                     }
@@ -84,7 +83,7 @@ public class S_Grid : MonoBehaviour
 
             GameObject _obj =
                     Instantiate(m_obj,_transform.position,
-                        Quaternion.identity, m_parentTransform);
+                        _transform.rotation, m_parentTransform);
 
             _obj.transform.localScale = new Vector3(m_cellSize, m_cellSize, m_cellSize);
 
