@@ -69,6 +69,7 @@ public class VoxelPlacer : MonoBehaviour
 
     public void OnBlockPlaced(Transform _transform, VoxelData _voxelData)
     {
+        print(_voxelData.GetMaterial.name);
             GameObject _obj =
                     Instantiate(m_obj,_transform.position,
                         _transform.rotation, m_parentTransform);

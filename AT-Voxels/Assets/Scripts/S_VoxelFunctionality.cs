@@ -16,11 +16,8 @@ public class VoxelFunctionality : MonoBehaviour
 
     public void UpdateVoxelType(VoxelData _newVoxelData)
     {
-        if(m_currentVoxelData != _newVoxelData)
-        {
             m_currentVoxelData = _newVoxelData;
             UpdateBaseMaterials(_newVoxelData.GetMaterial);
-        }
     }
 
     

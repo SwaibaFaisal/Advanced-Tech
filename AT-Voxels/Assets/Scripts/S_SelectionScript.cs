@@ -143,6 +143,7 @@ public class SelectionScript : MonoBehaviour
                 break;
             case 1:
                 m_selectedVoxelData = m_voxelPlacer.GetVoxelTypes.GetRedVoxel;
+               
                 break;
             case 2:
                 m_selectedVoxelData = m_voxelPlacer.GetVoxelTypes.GetGreenVoxel;
