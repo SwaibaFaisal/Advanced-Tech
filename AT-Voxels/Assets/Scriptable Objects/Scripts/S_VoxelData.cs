@@ -9,6 +9,12 @@ public enum E_VoxelType
     RED,
     //2
     GREEN,
+    //3
+    DGRAY,
+    //4
+    DRED,
+    //5
+    DGREEN,
 
 }
 

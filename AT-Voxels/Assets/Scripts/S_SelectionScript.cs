@@ -134,22 +134,10 @@ public class SelectionScript : MonoBehaviour
         }
     }
 
-    public void OnMaterialButtonClicked(int _type)
+    public void OnMaterialButtonClicked( VoxelData _data)
     {
-        switch (_type)
-        {
-            case 0:
-                m_selectedVoxelData = m_voxelPlacer.GetVoxelTypes.GetGrayVoxel;
-                break;
-            case 1:
-                m_selectedVoxelData = m_voxelPlacer.GetVoxelTypes.GetRedVoxel;
-               
-                break;
-            case 2:
-                m_selectedVoxelData = m_voxelPlacer.GetVoxelTypes.GetGreenVoxel;
-                break;
-
-        }
+        
+        m_selectedVoxelData = _data;
 
     }
 

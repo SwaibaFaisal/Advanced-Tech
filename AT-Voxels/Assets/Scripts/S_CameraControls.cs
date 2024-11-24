@@ -26,7 +26,6 @@ public class CameraControls : MonoBehaviour
         switch(m_rotationState)
         {
             case (E_RotationState)0:
-                
                 break;
             case (E_RotationState)1:
                 RotateUpDown(1);
