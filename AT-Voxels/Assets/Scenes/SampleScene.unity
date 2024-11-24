@@ -283,11 +283,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1839633326}
-  m_Father: {fileID: 1607003819}
+  m_Father: {fileID: 1407216754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 25, y: -105}
+  m_AnchoredPosition: {x: 0, y: -100}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &259761846
@@ -662,42 +662,11 @@ Transform:
   m_GameObject: {fileID: 592633567}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.03, y: 0.5, z: 0.86}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1037297096}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &634107756
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 634107757}
-  m_Layer: 0
-  m_Name: Camera Rotation Point
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &634107757
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 634107756}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1037297096}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &668740776
 GameObject:
@@ -995,11 +964,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1417834450}
-  m_Father: {fileID: 1607003819}
+  m_Father: {fileID: 1407216754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 25, y: -25}
+  m_AnchoredPosition: {x: 0, y: -20}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &747372929
@@ -1458,8 +1427,9 @@ GameObject:
   - component: {fileID: 1282244363}
   - component: {fileID: 1282244364}
   - component: {fileID: 1282244365}
+  - component: {fileID: 1282244366}
   m_Layer: 0
-  m_Name: Grid Manager
+  m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1526,8 +1496,8 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1446995451}
-        m_TargetAssemblyTypeName: S_CameraControls, Assembly-CSharp
+      - m_Target: {fileID: 1282244366}
+        m_TargetAssemblyTypeName: S_RotationControls, Assembly-CSharp
         m_MethodName: OnCameraLeftPressed
         m_Mode: 0
         m_Arguments:
@@ -1598,8 +1568,8 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1446995451}
-        m_TargetAssemblyTypeName: S_CameraControls, Assembly-CSharp
+      - m_Target: {fileID: 1282244366}
+        m_TargetAssemblyTypeName: S_RotationControls, Assembly-CSharp
         m_MethodName: OnCameraRightPressed
         m_Mode: 0
         m_Arguments:
@@ -1614,8 +1584,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Look Right[/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1446995451}
-        m_TargetAssemblyTypeName: S_CameraControls, Assembly-CSharp
+      - m_Target: {fileID: 1282244366}
+        m_TargetAssemblyTypeName: S_RotationControls, Assembly-CSharp
         m_MethodName: OnCameraUpPressed
         m_Mode: 0
         m_Arguments:
@@ -1630,8 +1600,8 @@ MonoBehaviour:
     m_ActionName: 'Player/Look Up[/Keyboard/w,/Keyboard/upArrow]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1446995451}
-        m_TargetAssemblyTypeName: S_CameraControls, Assembly-CSharp
+      - m_Target: {fileID: 1282244366}
+        m_TargetAssemblyTypeName: S_RotationControls, Assembly-CSharp
         m_MethodName: OnCameraDownPressed
         m_Mode: 0
         m_Arguments:
@@ -1692,6 +1662,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1282244366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282244360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b407ff31ee4754c9a91747931087d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_objectToRotate: {fileID: 592633567}
+  m_rotationPoint: {fileID: 592633568}
+  m_rotationSpeed: 2
 --- !u!1 &1407216750
 GameObject:
   m_ObjectHideFlags: 0
@@ -1792,7 +1777,9 @@ RectTransform:
   - {fileID: 668740777}
   - {fileID: 718154555}
   - {fileID: 114642694}
-  - {fileID: 1607003819}
+  - {fileID: 747372928}
+  - {fileID: 259761845}
+  - {fileID: 1583083959}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1965,7 +1952,7 @@ Transform:
   m_GameObject: {fileID: 1446995446}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15403053, y: -0, z: -0, w: 0.98806614}
-  m_LocalPosition: {x: 0, y: 1.78, z: -7.56}
+  m_LocalPosition: {x: 0, y: 4.23, z: -3.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2086,8 +2073,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5ba8d311d801b7408a4e98e508d2b5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_targetTransform: {fileID: 634107757}
-  m_rotationSpeed: 5
 --- !u!1 &1583083958
 GameObject:
   m_ObjectHideFlags: 0
@@ -2120,11 +2105,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 828348149}
-  m_Father: {fileID: 1607003819}
+  m_Father: {fileID: 1407216754}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 25, y: -185}
+  m_AnchoredPosition: {x: 0, y: -180}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1583083960
@@ -2221,44 +2206,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583083958}
   m_CullTransparentMesh: 1
---- !u!1 &1607003818
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1607003819}
-  m_Layer: 5
-  m_Name: Tool Buttons
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1607003819
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607003818}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 747372928}
-  - {fileID: 259761845}
-  - {fileID: 1583083959}
-  m_Father: {fileID: 1407216754}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -436.8, y: 168.7}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1839633325
 GameObject:
   m_ObjectHideFlags: 0
@@ -2685,10 +2632,9 @@ SceneRoots:
   m_Roots:
   - {fileID: 410087041}
   - {fileID: 832575519}
+  - {fileID: 1282244361}
   - {fileID: 1037297096}
   - {fileID: 2684641081075091959}
-  - {fileID: 1282244361}
   - {fileID: 1407216754}
   - {fileID: 1842490484}
-  - {fileID: 634107757}
   - {fileID: 1446995447}

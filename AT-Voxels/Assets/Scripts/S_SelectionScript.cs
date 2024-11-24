@@ -1,17 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum E_BrushType 
-{ 
-    //0
-    PAINT,
-    //1
-    ERASE,
-    //2
-    PLACE,
-
-}
-
 
 public class SelectionScript : MonoBehaviour
 {

@@ -1,22 +1,7 @@
 using Unity.VisualScripting.FullSerializer;
 using UnityEngine;
 
-public enum E_VoxelType
-{
-    //0
-    GRAY,
-    //1
-    RED,
-    //2
-    GREEN,
-    //3
-    DGRAY,
-    //4
-    DRED,
-    //5
-    DGREEN,
 
-}
 
 [CreateAssetMenu(menuName = "Voxel Object")]
 public class VoxelData : ScriptableObject

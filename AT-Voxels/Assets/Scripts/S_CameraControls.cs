@@ -1,23 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public enum E_RotationState
-{
-    //0
-    NONE,
-    //1
-    UP,
-    //2
-    DOWN,
-    //3
-    LEFT,
-    //4
-    RIGHT,
-}
+
 
 public class CameraControls : MonoBehaviour
 {
-    [SerializeField] Transform m_targetTransform;
+/*    [SerializeField] Transform m_targetTransform;
     [SerializeField] float m_rotationSpeed;
     E_RotationState m_rotationState;
 
@@ -104,5 +92,5 @@ public class CameraControls : MonoBehaviour
         //transform.RotateAround(m_targetTransform.position, new Vector3(1, 0, 0), _speed);
     }
 
-
+*/
 }

@@ -1,20 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
-public enum E_VoxelFaceType 
-{ 
-    FRONT,
 
-    BACK,
-
-    TOP,
-
-    BOTTOM,
-
-    LEFT,
-
-    RIGHT,
-};
 public class VoxelFace : MonoBehaviour
 {
     [SerializeField] float m_raycastDistance;
@@ -25,8 +12,8 @@ public class VoxelFace : MonoBehaviour
     public Transform GetOriginTransform => m_originTransform;
 
     Material m_currentMaterial;
-    GameObject m_thisObject;
-    E_VoxelFaceType m_type;
+   
+
    
     public void UpdateBaseMaterial(Material _newMaterial)
     {
