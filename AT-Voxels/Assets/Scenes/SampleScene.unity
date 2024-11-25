@@ -1498,7 +1498,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1282244366}
         m_TargetAssemblyTypeName: S_RotationControls, Assembly-CSharp
-        m_MethodName: OnCameraLeftPressed
+        m_MethodName: OnLookHorizontal
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1570,7 +1570,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1282244366}
         m_TargetAssemblyTypeName: S_RotationControls, Assembly-CSharp
-        m_MethodName: OnCameraRightPressed
+        m_MethodName: OnLookVertical
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1580,40 +1580,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_ActionId: 25975939-d8e3-467c-a568-f71b80c2e8d7
-    m_ActionName: 'Player/Look Right[/Keyboard/d,/Keyboard/rightArrow]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1282244366}
-        m_TargetAssemblyTypeName: S_RotationControls, Assembly-CSharp
-        m_MethodName: OnCameraUpPressed
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: 4a77806b-f01a-469d-b8bc-bc2fe11b72b5
-    m_ActionName: 'Player/Look Up[/Keyboard/w,/Keyboard/upArrow]'
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1282244366}
-        m_TargetAssemblyTypeName: S_RotationControls, Assembly-CSharp
-        m_MethodName: OnCameraDownPressed
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_ActionId: ddfc16d6-c24c-4cdf-ba42-ddedbbe76808
-    m_ActionName: 'Player/Look Down[/Keyboard/s,/Keyboard/downArrow]'
+    m_ActionId: 27da51fd-9c71-4712-b4eb-34697b00770f
+    m_ActionName: 'Player/Look Vertical[/Keyboard/s,/Keyboard/w,/Keyboard/downArrow,/Keyboard/upArrow]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player

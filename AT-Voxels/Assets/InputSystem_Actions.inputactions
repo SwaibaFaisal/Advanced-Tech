@@ -6,10 +6,19 @@
             "id": "df70fa95-8a34-4494-b137-73ab6b9c7d37",
             "actions": [
                 {
-                    "name": "Look Left",
-                    "type": "Button",
+                    "name": "Look Horizontal",
+                    "type": "Value",
                     "id": "351f2ccd-1f9f-44bf-9bec-d62ac5c5f408",
-                    "expectedControlType": "",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Look Vertical",
+                    "type": "Value",
+                    "id": "27da51fd-9c71-4712-b4eb-34697b00770f",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -21,33 +30,6 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "Hold",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Look Right",
-                    "type": "Button",
-                    "id": "25975939-d8e3-467c-a568-f71b80c2e8d7",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Look Up",
-                    "type": "Button",
-                    "id": "4a77806b-f01a-469d-b8bc-bc2fe11b72b5",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Look Down",
-                    "type": "Button",
-                    "id": "ddfc16d6-c24c-4cdf-ba42-ddedbbe76808",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -86,92 +68,136 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "163e9b3e-e803-4921-a9ac-1c3b6003fb69",
+                    "name": "1D Axis",
+                    "id": "1ccbe1d6-1ad6-4f21-9321-5734949380a2",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look Horizontal",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "769cbd57-4010-4c04-8bb2-f17d58986028",
                     "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look Left",
+                    "action": "Look Horizontal",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "03d17f43-07c1-4552-a2ff-198ad7c8dd97",
-                    "path": "<Keyboard>/leftArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Look Left",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0953f13c-7083-40f2-9419-f2739fef9f7a",
+                    "name": "positive",
+                    "id": "0e3de91a-681e-498e-9d81-5787211d5b73",
                     "path": "<Keyboard>/d",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look Right",
+                    "action": "Look Horizontal",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "e29db0fe-6b66-4705-a6e2-73f2a6f32581",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look Horizontal",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "897891da-28a9-43ee-90a8-cecac1aaa423",
+                    "name": "negative",
+                    "id": "e1fe29ce-8d78-4e7b-af84-3fca2c7d8fac",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look Horizontal",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "66b9263a-7481-49ca-ad08-3e8545191fad",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look Right",
+                    "action": "Look Horizontal",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "170e1c13-13a4-4c7b-87ef-0fe9c970ad6f",
-                    "path": "<Keyboard>/w",
+                    "name": "1D Axis",
+                    "id": "ad7931aa-980c-43d7-a14d-a428e912ddfd",
+                    "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look Up",
-                    "isComposite": false,
+                    "action": "Look Vertical",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "2ca0e3df-41d8-4390-838d-5c2611f6fe35",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Look Up",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "c1f3cf12-b5ee-4e2c-ac97-6ca5f3ff3841",
+                    "name": "negative",
+                    "id": "8f46c6a4-2c50-40d4-a0ff-ac2ae421c5f6",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look Down",
+                    "action": "Look Vertical",
                     "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "e7b40d3c-d4cc-4757-97d6-36f9623357eb",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "b5498c1f-b46e-4e4a-b600-0848208d6d8d",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look Vertical",
+                    "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "c09f4b84-1e6f-4b91-9054-8859071bfde4",
+                    "name": "negative",
+                    "id": "d4950668-4ce4-4622-9537-e4fc10ed2257",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Look Down",
+                    "action": "Look Vertical",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "5570c88e-6cdc-460b-80ce-30abf363685a",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Look Vertical",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

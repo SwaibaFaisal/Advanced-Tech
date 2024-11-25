@@ -15,24 +15,7 @@ public enum E_VoxelType
     //5
     DGREEN,
 }
-public enum E_RotationStateHorizontal
-{
-    //0
-    NONE,
-    //1
-    LEFT,
-    //2
-    RIGHT,
-}
-public enum E_RotationStateVertical
-{
-    //0
-    NONE,
-    //1
-    UP,
-    //2
-    DOWN,
-}
+
 public enum E_BrushType
 {
     //0
