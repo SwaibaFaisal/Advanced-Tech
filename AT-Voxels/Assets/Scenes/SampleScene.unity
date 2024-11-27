@@ -1469,9 +1469,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b54001789dbb2f14da856c8d971c9f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_GridDimensions: {x: 12, y: 1, z: 12}
+  m_GridDimensions: {x: 3, y: 3, z: 3}
   m_InitialVoxel: {fileID: 11400000, guid: 8f0b2ac37bdd81f4ea10bdb8c4092f4d, type: 2}
-  m_cellSize: 0.3
+  m_cellSize: 0.4
   m_parentTransform: {fileID: 592633568}
   m_centerPoint: {fileID: 1671835554}
   m_obj: {fileID: 1256266956050001880, guid: 8b20a4c0ea466f34f975ed52ecfaa105, type: 3}
@@ -1929,11 +1929,11 @@ Transform:
   m_GameObject: {fileID: 1446995446}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15403053, y: -0, z: -0, w: 0.98806614}
-  m_LocalPosition: {x: 0, y: 1.09, z: -1.82}
+  m_LocalPosition: {x: 0, y: 2, z: -6.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1671835554}
   m_LocalEulerAnglesHint: {x: 17.721, y: 0, z: 0}
 --- !u!114 &1446995448
 MonoBehaviour:
@@ -2211,7 +2211,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1446995447}
   m_Father: {fileID: 1037297096}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1839633325
@@ -2536,7 +2537,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.59607846, b: 0.5529412, a: 1}
+  m_Color: {r: 1, g: 0.4117647, b: 0.36862746, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2641,7 +2642,6 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 1282244361}
-  - {fileID: 1446995447}
   - {fileID: 1037297096}
   - {fileID: 1407216754}
   - {fileID: 1842490484}

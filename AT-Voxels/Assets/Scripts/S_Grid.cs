@@ -33,7 +33,7 @@ public class VoxelPlacer : MonoBehaviour
 
     public void SetParentTransformPosition()
     {
-        Vector3 _pos = ( m_GridDimensions / 2 );
+        Vector3 _pos = ( m_GridDimensions * m_cellSize ) /2;
         m_centerPoint.transform.position = _pos;
     }
 
@@ -47,11 +47,7 @@ public class VoxelPlacer : MonoBehaviour
                 for (int k = 0; k < m_GridDimensions.z; k++)
                 {
                     Vector3 _indexes = new Vector3(i,j,k) * m_cellSize;
-                    Vector3 _offset = new Vector3 (
-                        (float)m_GridDimensions.x/2, 
-                        (float)m_GridDimensions.y/2,
-                        (float)m_GridDimensions.z/2) 
-                        * - 1;
+                    Vector3 _offset = _indexes / 2;
                    // creates a gameobject to store voxel in temporarily
 
                    GameObject _obj = 

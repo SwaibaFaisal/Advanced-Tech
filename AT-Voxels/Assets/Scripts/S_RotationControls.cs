@@ -66,7 +66,7 @@ public class S_RotationControls : MonoBehaviour
         if(_context.started)
         {
             m_isLookingVertical = true;
-            m_rotateValues.y = _context.ReadValue<float>();
+            m_rotateValues.y = -_context.ReadValue<float>();
             MoveUpDown(m_rotateValues.y);
         }
         else if(_context.canceled)
