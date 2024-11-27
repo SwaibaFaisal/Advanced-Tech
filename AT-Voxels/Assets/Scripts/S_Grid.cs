@@ -89,4 +89,18 @@ public class VoxelPlacer : MonoBehaviour
             }
     }
 
+
+
+    public void ResetAllVoxels()
+    {
+        for (int i = 0; i < m_VoxelList.Count; i++)
+        {
+            GameObject _obj = m_VoxelList[i];
+
+            Destroy(_obj);
+        }
+        m_VoxelList.Clear();
+        InstantiateVoxels();
+    }
+
 }
