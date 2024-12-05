@@ -20,8 +20,6 @@ public class VoxelFunctionality : MonoBehaviour
             UpdateBaseMaterials(_newVoxelData.GetMaterial);
     }
 
-    
-
     public void SelectVoxel()
     {
         m_isHighlighted = true;
@@ -43,8 +41,6 @@ public class VoxelFunctionality : MonoBehaviour
         }
     }
 
-
-
     public void UpdateBaseMaterials(Material _material)
     {
 
@@ -55,8 +51,6 @@ public class VoxelFunctionality : MonoBehaviour
         }
 
     }
-
-   
 
     public void Break()
     {

@@ -33,7 +33,7 @@ public class SelectionScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //revise, is it wise to mix modern + legacy input systems???????
+       
         Vector3 _mousePosition = Input.mousePosition;
 
         Ray _ray = Camera.main.ScreenPointToRay(_mousePosition);
@@ -61,7 +61,7 @@ public class SelectionScript : MonoBehaviour
                 {
                     m_currentVoxelScript.SelectVoxel();
                     m_previousVoxelScript = m_currentVoxelScript;
-                    m_previousFaceScript = m_currentFaceScript;
+
                 }
                 else if(!m_currentVoxelScript.GetIsHighlighted)
                 {
@@ -69,7 +69,7 @@ public class SelectionScript : MonoBehaviour
                     m_currentVoxelScript.SelectVoxel();
                     m_previousVoxelScript = m_currentVoxelScript;
            
-                    m_previousFaceScript = m_currentFaceScript;
+
                 }
             }
             

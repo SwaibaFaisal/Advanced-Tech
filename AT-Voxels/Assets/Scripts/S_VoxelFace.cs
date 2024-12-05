@@ -6,7 +6,6 @@ public class VoxelFace : MonoBehaviour
 {
     [SerializeField] float m_raycastDistance;
     [SerializeField] Transform m_originTransform;
-    Transform m_transform;
     [SerializeField] List<GameObject> m_meshes = new List<GameObject>();
 
     public Transform GetOriginTransform => m_originTransform;
