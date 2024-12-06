@@ -43,13 +43,11 @@ public class VoxelFunctionality : MonoBehaviour
 
     public void UpdateBaseMaterials(Material _material)
     {
-
         for(int i = 0;  i < m_faces.Count; i++)
         {
             VoxelFace _script = m_faces[i].GetComponent<VoxelFace>();
             _script.UpdateBaseMaterial(_material);
         }
-
     }
 
     public void Break()

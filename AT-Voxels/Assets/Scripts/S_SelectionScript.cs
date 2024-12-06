@@ -45,8 +45,6 @@ public class SelectionScript : MonoBehaviour
         if(Physics.Raycast(_ray, out RaycastHit _hitData, 100, m_hittableLayer))
         {
 
-        
-           
             m_currentVoxelScript = 
                 _hitData.collider.gameObject.GetComponentInParent<VoxelFunctionality>();
             m_currentFaceScript = 
@@ -68,8 +66,6 @@ public class SelectionScript : MonoBehaviour
                     m_previousVoxelScript.DeselectVoxel();
                     m_currentVoxelScript.SelectVoxel();
                     m_previousVoxelScript = m_currentVoxelScript;
-           
-
                 }
             }
             
@@ -130,9 +126,4 @@ public class SelectionScript : MonoBehaviour
 
     }
 
-
-    public void Test(int i)
-    {
-        print(i);
-    }
 }

@@ -24,23 +24,15 @@ public class VoxelPlacer : MonoBehaviour
         SetParentTransformPosition();
     }
         
-    void InitVoxelList()
-    {
-        float _gridList = m_GridDimensions.x * m_GridDimensions.y * m_GridDimensions.z;
-
-        InstantiateVoxels();
-
-    }
-
     public void SetParentTransformPosition()
     {
-        Vector3 _pos = ( m_GridDimensions * m_cellSize ) /2;
+        Vector3 _pos = ( m_GridDimensions * m_cellSize ) / 2;
         m_centerPoint.transform.position = _pos;
     }
 
     void InstantiateVoxels()
     {
-        // loops through 3 dimensions and adds a voxel 
+        // Places initial voxels based on grid values put in by user
         for (int i = 0; i < m_GridDimensions.x; i++)
         {
             for (int j = 0; j < m_GridDimensions.y; j++)
@@ -51,29 +43,15 @@ public class VoxelPlacer : MonoBehaviour
 
                     PlaceVoxel(m_parentTransform.localPosition + _indexes, Quaternion.identity, m_InitialVoxel);
                
-                   // creates a gameobject to store voxel in temporarily
-
-                  /* GameObject _obj = 
-                    Instantiate(m_obj,
-                        (m_parentTransform.localPosition + _indexes), 
-                        Quaternion.identity, m_parentTransform);
-
-                    _obj.transform.localScale = new Vector3(m_cellSize, m_cellSize, m_cellSize);
-
-                    m_VoxelList.Add(_obj);
-                   
-                    if(_obj.GetComponent<VoxelFunctionality>() != null)
-                    {
-                        VoxelFunctionality _script = _obj.GetComponent<VoxelFunctionality>();
-                        _script.UpdateVoxelType(m_InitialVoxel);              
-                    }*/
-
                 }
             }
         }
     }
+
     public void PlaceVoxel(Vector3 _position, Quaternion _rotation, VoxelData _voxelData)
     {
+        //Instantiates a voxel object, sets its scale and adds it to the voxel list
+
         GameObject _obj = 
             Instantiate(m_obj, _position, _rotation, m_parentTransform);
 
@@ -88,25 +66,11 @@ public class VoxelPlacer : MonoBehaviour
         }
 
     }
+
     public void OnBlockPlaced(Transform _transform, VoxelData _voxelData)
     {
-        PlaceVoxel(_transform.position, _transform.rotation, _voxelData);
-           /* GameObject _obj =
-                    Instantiate(m_obj,_transform.position,
-                        _transform.rotation, m_parentTransform);
-
-            _obj.transform.localScale = new Vector3(m_cellSize, m_cellSize, m_cellSize);
-
-            m_VoxelList.Add(_obj);
-
-            if (_obj.GetComponent<VoxelFunctionality>() != null)
-            {
-                VoxelFunctionality _script = _obj.GetComponent<VoxelFunctionality>();
-                _script.UpdateVoxelType(_voxelData);
-            }*/
+        PlaceVoxel(_transform.position, _transform.rotation, _voxelData);       
     }
-
-
 
     public void ResetAllVoxels()
     {
