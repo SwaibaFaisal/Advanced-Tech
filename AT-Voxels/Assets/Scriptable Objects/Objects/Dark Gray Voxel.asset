@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78935036eab177047a78b49402062655, type: 3}
   m_Name: Dark Gray Voxel
   m_EditorClassIdentifier: 
-  m_type: 0
+  m_type: 3
   m_material: {fileID: 2100000, guid: d9d03a26f404ddd4fa7ff49cad503dd0, type: 2}
-  m_name: GRAY

@@ -25,7 +25,6 @@ public class SelectionScript : MonoBehaviour
         m_cam = Camera.main;
         m_voxelPlacer = this.gameObject.GetComponent<VoxelPlacer>();
         m_brushType = E_BrushType.PAINT;
-        m_selectedVoxelData = m_voxelPlacer.GetVoxelTypes.GetGrayVoxel;
     }
 
 
@@ -87,18 +86,22 @@ public class SelectionScript : MonoBehaviour
     {
         if(_context.started && m_currentVoxelScript != null)
         {
-            switch(m_brushType)
+            if(m_selectedVoxelData != null)
             {
-                case (E_BrushType)0:
-                    m_currentVoxelScript.Paint(m_selectedVoxelData);
-                    break;
-                case (E_BrushType)1:
-                    m_currentVoxelScript.Break();
-                    break;
-                case (E_BrushType)2:
-                    m_voxelPlacer.OnBlockPlaced(m_currentFaceScript.GetOriginTransform, m_selectedVoxelData);
-                    break;
+                switch(m_brushType)
+                {
+                    case (E_BrushType)0:
+                        m_currentVoxelScript.Paint(m_selectedVoxelData);
+                        break;
+                    case (E_BrushType)1:
+                        m_currentVoxelScript.Break();
+                        break;
+                    case (E_BrushType)2:
+                        m_voxelPlacer.OnBlockPlaced(m_currentFaceScript.GetOriginTransform, m_selectedVoxelData);
+                        break;
+                }
             }
+
         }
     }
 

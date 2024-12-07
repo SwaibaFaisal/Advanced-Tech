@@ -12,6 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78935036eab177047a78b49402062655, type: 3}
   m_Name: Dark Red Voxel
   m_EditorClassIdentifier: 
-  m_type: 1
+  m_type: 4
   m_material: {fileID: 2100000, guid: 8517635888fb2da42b85d9a3eba47d7a, type: 2}
-  m_name: RED
