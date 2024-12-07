@@ -11,7 +11,7 @@ public class VoxelPlacer : MonoBehaviour
     [SerializeField] float m_cellSize;
 
     [SerializeField] Transform m_parentTransform;
-    [SerializeField] Transform m_centerPoint;
+    
     [SerializeField] GameObject m_obj;
     [SerializeField] List<GameObject> m_VoxelList = new List<GameObject>();
     [SerializeField] VoxelTypes m_voxelTypes;
@@ -21,13 +21,7 @@ public class VoxelPlacer : MonoBehaviour
     void Awake()
     {
         InstantiateVoxels();
-        SetParentTransformPosition();
-    }
-        
-    public void SetParentTransformPosition()
-    {
-        Vector3 _pos = ( m_GridDimensions * m_cellSize ) / 2;
-        m_centerPoint.transform.position = _pos;
+
     }
 
     void InstantiateVoxels()
@@ -74,6 +68,7 @@ public class VoxelPlacer : MonoBehaviour
 
     public void ResetAllVoxels()
     {
+        m_parentTransform.position = Vector3.zero;
         for (int i = 0; i < m_VoxelList.Count; i++)
         {
             GameObject _obj = m_VoxelList[i];
@@ -81,7 +76,15 @@ public class VoxelPlacer : MonoBehaviour
             Destroy(_obj);
         }
         m_VoxelList.Clear();
+        ResetRotation();
         InstantiateVoxels();
+        
+    }
+
+    public void ResetRotation()
+    {
+        m_parentTransform.rotation = Quaternion.identity;
+        m_parentTransform.position = Vector3.zero;
     }
 
 }

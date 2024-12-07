@@ -11,6 +11,7 @@ public class S_RotationControls : MonoBehaviour
     Vector2 m_rotateValues; 
     bool m_isLookingHorizontal;
     bool m_isLookingVertical;
+    bool m_isShiftPressed = false;
 
     
   
@@ -24,6 +25,15 @@ public class S_RotationControls : MonoBehaviour
 
         if(m_isLookingVertical)
         {
+            if(m_isShiftPressed) 
+            { 
+                MoveUpDown(m_rotateValues.y);
+            }
+            else
+            {
+                RotateUpDown(m_rotateValues.y);
+            }
+    
             
         }
 
@@ -41,6 +51,12 @@ public class S_RotationControls : MonoBehaviour
     void RotateLeftRight(float _speed)
     {
         Vector3 _angle = _speed * Vector3.up;
+        m_objectToRotate.transform.eulerAngles += _angle;
+    }
+
+    void RotateUpDown(float _speed)
+    {
+        Vector3 _angle = _speed * Vector3.right;
         m_objectToRotate.transform.eulerAngles += _angle;
     }
 
@@ -66,12 +82,26 @@ public class S_RotationControls : MonoBehaviour
         {
             m_isLookingVertical = true;
             m_rotateValues.y = -_context.ReadValue<float>();
-            MoveUpDown(m_rotateValues.y);
+            
         }
         else if(_context.canceled)
         {
             m_isLookingVertical = false;
         }
+    }
+
+    public void OnShiftPressed(InputAction.CallbackContext _context)
+    {
+        if(_context.started)
+        {
+            m_isShiftPressed = true;
+        }
+
+        else if (_context.canceled)
+        {
+            m_isShiftPressed = false;
+        }
+
     }
 
 }
