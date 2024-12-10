@@ -53,5 +53,6 @@ public class VoxelFunctionality : MonoBehaviour
     {
         UpdateBaseMaterials(_voxelData.GetMaterial);
     }
-
 }
+
+

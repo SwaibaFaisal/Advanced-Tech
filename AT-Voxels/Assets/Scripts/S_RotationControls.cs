@@ -25,14 +25,12 @@ public class S_RotationControls : MonoBehaviour
 
         if(m_isLookingVertical)
         {
-            if(m_isShiftPressed) 
+            if(!m_isShiftPressed) 
             { 
-                MoveUpDown(m_rotateValues.y);
-            }
-            else
-            {
                 RotateUpDown(m_rotateValues.y);
+
             }
+           
     
             
         }
@@ -82,6 +80,10 @@ public class S_RotationControls : MonoBehaviour
         {
             m_isLookingVertical = true;
             m_rotateValues.y = -_context.ReadValue<float>();
+            if(m_isShiftPressed)
+            {
+                MoveUpDown(m_rotateValues.y);
+            }
             
         }
         else if(_context.canceled)
