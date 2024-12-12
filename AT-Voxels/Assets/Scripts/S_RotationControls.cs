@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -18,22 +19,20 @@ public class S_RotationControls : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(m_isLookingHorizontal)
+        if(!m_isShiftPressed)
         {
-            RotateLeftRight(m_rotateValues.x);
-        }
-
-        if(m_isLookingVertical)
-        {
-            if(!m_isShiftPressed) 
-            { 
-                RotateUpDown(m_rotateValues.y);
-
+            if(m_isLookingHorizontal)
+            {
+                RotateLeftRight(m_rotateValues.x);
             }
-           
-    
-            
+            if (m_isLookingVertical)
+            {   
+                RotateUpDown(m_rotateValues.y);
+            }
         }
+
+
+        
 
        
     }
@@ -44,6 +43,13 @@ public class S_RotationControls : MonoBehaviour
 
         m_objectToRotate.transform.position += new Vector3(0,_value,0);
 
+    }
+
+    void MoveLeftRight(float _speed)
+    {
+        float _value = (_speed / m_verticalMultiplier);
+
+        m_objectToRotate.transform.position += new Vector3(_value, 0, 0);
     }
 
     void RotateLeftRight(float _speed)
@@ -65,6 +71,10 @@ public class S_RotationControls : MonoBehaviour
         { 
            m_isLookingHorizontal = true;
            m_rotateValues.x = _context.ReadValue<float>();
+           if(m_isShiftPressed)
+           {
+                MoveLeftRight(m_rotateValues.x);
+           }
 
         }
         else if(_context.canceled)
@@ -82,7 +92,7 @@ public class S_RotationControls : MonoBehaviour
             m_rotateValues.y = -_context.ReadValue<float>();
             if(m_isShiftPressed)
             {
-                MoveUpDown(m_rotateValues.y);
+                MoveUpDown(-m_rotateValues.y);
             }
             
         }

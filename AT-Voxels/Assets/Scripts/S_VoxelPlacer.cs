@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class VoxelPlacer : MonoBehaviour
 {
     #region variable info 
-    [SerializeField] VoxelData m_InitialVoxel;
+    [SerializeField] VoxelData m_initialVoxel;
     [SerializeField] Vector3 m_GridDimensions;
     [SerializeField] float m_cellSize;
 
@@ -17,6 +17,7 @@ public class VoxelPlacer : MonoBehaviour
     [SerializeField] VoxelTypes m_voxelTypes;
     #endregion
     public VoxelTypes GetVoxelTypes => m_voxelTypes;
+    public VoxelData InitialVoxel => m_initialVoxel;
 
     void Awake()
     {
@@ -35,7 +36,7 @@ public class VoxelPlacer : MonoBehaviour
                 {
                     Vector3 _indexes = new Vector3(i,j,k) * m_cellSize;
 
-                    PlaceVoxel(m_parentTransform.localPosition + _indexes, Quaternion.identity, m_InitialVoxel);
+                    PlaceVoxel(m_parentTransform.localPosition + _indexes, Quaternion.identity, m_initialVoxel);
                
                 }
             }
@@ -44,7 +45,7 @@ public class VoxelPlacer : MonoBehaviour
 
     public void PlaceVoxel(Vector3 _position, Quaternion _rotation, VoxelData _voxelData)
     {
-        //Instantiates a voxel object, sets its scale and adds it to the voxel list
+        //Instantiates a voxel object, sets its transform values, adds it to the voxel list and sets its type
 
         GameObject _obj = 
             Instantiate(m_obj, _position, _rotation, m_parentTransform);
@@ -61,7 +62,7 @@ public class VoxelPlacer : MonoBehaviour
 
     }
 
-    public void OnBlockPlaced(Transform _transform, VoxelData _voxelData)
+    public void OnVoxelPlaced(Transform _transform, VoxelData _voxelData)
     {
         PlaceVoxel(_transform.position, _transform.rotation, _voxelData);       
     }
