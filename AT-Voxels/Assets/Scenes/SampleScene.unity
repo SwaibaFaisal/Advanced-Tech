@@ -1869,8 +1869,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialVoxel: {fileID: 11400000, guid: fbefdd2e81aac0649b55ae12c630d574, type: 2}
-  m_GridDimensions: {x: 5, y: 5, z: 5}
-  m_cellSize: 0.4
+  m_GridDimensions: {x: 12, y: 12, z: 12}
+  m_cellSize: 0.1
   m_parentTransform: {fileID: 592633568}
   m_obj: {fileID: 1256266956050001880, guid: 8b20a4c0ea466f34f975ed52ecfaa105, type: 3}
   m_VoxelList: []
@@ -2596,7 +2596,7 @@ Transform:
   m_GameObject: {fileID: 1446995446}
   serializedVersion: 2
   m_LocalRotation: {x: 0.15403053, y: -0, z: -0, w: 0.98806614}
-  m_LocalPosition: {x: 0, y: 2, z: -6.27}
+  m_LocalPosition: {x: 0, y: 1.6, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
