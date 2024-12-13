@@ -55,13 +55,13 @@ public class S_RotationControls : MonoBehaviour
     void RotateLeftRight(float _speed)
     {
         Vector3 _angle = _speed * Vector3.up;
-        m_objectToRotate.transform.eulerAngles += _angle;
+        m_objectToRotate.transform.Rotate(_angle);
     }
 
     void RotateUpDown(float _speed)
     {
         Vector3 _angle = _speed * Vector3.right;
-        m_objectToRotate.transform.eulerAngles += _angle;
+        m_objectToRotate.transform.Rotate(_angle);
     }
 
 

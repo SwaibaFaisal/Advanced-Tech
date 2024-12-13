@@ -1869,7 +1869,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_initialVoxel: {fileID: 11400000, guid: fbefdd2e81aac0649b55ae12c630d574, type: 2}
-  m_GridDimensions: {x: 5, y: 1, z: 5}
+  m_GridDimensions: {x: 5, y: 5, z: 5}
   m_cellSize: 0.4
   m_parentTransform: {fileID: 592633568}
   m_obj: {fileID: 1256266956050001880, guid: 8b20a4c0ea466f34f975ed52ecfaa105, type: 3}
